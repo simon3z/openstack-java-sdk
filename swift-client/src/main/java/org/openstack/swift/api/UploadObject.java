@@ -6,10 +6,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.swift.model.ObjectForUpload;
 
-public class UploadObject implements SwiftCommand<Response>{
+public class UploadObject implements OpenStackCommand<Response> {
 
 	private ObjectForUpload objectForUpload;
 	

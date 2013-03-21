@@ -3,10 +3,10 @@ package org.openstack.glance.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.ImageMember;
 
-public class AddMemberToImage implements GlanceCommand<ImageMember>{
+public class AddMemberToImage implements OpenStackCommand<ImageMember> {
 
 	private String id;
 	

@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.ConsoleOutput;
 import org.openstack.nova.model.ServerAction.GetConsoleOutput;
 
 public class OutputExtension {
 
-	public static class GetConsoleOutputServer implements NovaCommand<ConsoleOutput> {
+	public static class GetConsoleOutputServer implements OpenStackCommand<ConsoleOutput> {
 		
 		private GetConsoleOutput action;
 

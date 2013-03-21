@@ -4,7 +4,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.SecurityGroup;
 import org.openstack.nova.model.SecurityGroupForCreate;
 import org.openstack.nova.model.SecurityGroupRuleForCreate;
@@ -12,7 +12,7 @@ import org.openstack.nova.model.SecurityGroups;
 
 public class SecurityGroupsExtension {
 	
-	public static class ListSecurityGroups implements NovaCommand<SecurityGroups>{
+	public static class ListSecurityGroups implements OpenStackCommand<SecurityGroups> {
 
 		@Override
 		public SecurityGroups execute(WebTarget target) {
@@ -21,7 +21,7 @@ public class SecurityGroupsExtension {
 
 	}
 
-	public static class CreateSecurityGroup implements NovaCommand<SecurityGroup> {
+	public static class CreateSecurityGroup implements OpenStackCommand<SecurityGroup> {
 
 		private SecurityGroupForCreate securityGroupForCreate;
 		
@@ -36,7 +36,7 @@ public class SecurityGroupsExtension {
 		
 	}
 	
-	public static class ShowSecurityGroup implements NovaCommand<SecurityGroup> {
+	public static class ShowSecurityGroup implements OpenStackCommand<SecurityGroup> {
 
 		private Integer id;
 		
@@ -51,7 +51,7 @@ public class SecurityGroupsExtension {
 		
 	}
 	
-	public static class DeleteSecurityGroup implements NovaCommand<Void> {
+	public static class DeleteSecurityGroup implements OpenStackCommand<Void> {
 
 		private Integer id;
 		
@@ -67,7 +67,7 @@ public class SecurityGroupsExtension {
 		
 	}
 	
-	public static class CreateSecurityGroupRule implements NovaCommand<SecurityGroup.Rule> {
+	public static class CreateSecurityGroupRule implements OpenStackCommand<SecurityGroup.Rule> {
 
 		private SecurityGroupRuleForCreate securityGroupRuleForCreate;
 		
@@ -82,7 +82,7 @@ public class SecurityGroupsExtension {
 		
 	}
 	
-	public static class DeleteSecurityGroupRule implements NovaCommand<Void> {
+	public static class DeleteSecurityGroupRule implements OpenStackCommand<Void> {
 
 		private Integer id;
 		

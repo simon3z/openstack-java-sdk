@@ -4,7 +4,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.CreateBackup;
 import org.openstack.nova.model.ServerAction.Lock;
 import org.openstack.nova.model.ServerAction.Pause;
@@ -15,7 +15,7 @@ import org.openstack.nova.model.ServerAction.Unpause;
 
 public class ServerAdminActionsExtension {
 	
-	public class PauseServer implements NovaCommand<Void> {
+	public class PauseServer implements OpenStackCommand<Void> {
 		
 		private Pause action;
 
@@ -34,7 +34,7 @@ public class ServerAdminActionsExtension {
 
 	}
 	
-	public class UnpauseServer implements NovaCommand<Void> {
+	public class UnpauseServer implements OpenStackCommand<Void> {
 		
 		private Unpause action;
 
@@ -53,7 +53,7 @@ public class ServerAdminActionsExtension {
 
 	}
 
-	public class LockServer implements NovaCommand<Void> {
+	public class LockServer implements OpenStackCommand<Void> {
 		
 		private Lock action;
 
@@ -72,7 +72,7 @@ public class ServerAdminActionsExtension {
 
 	}
 
-	public class UnlockServer implements NovaCommand<Void> {
+	public class UnlockServer implements OpenStackCommand<Void> {
 		
 		private Unlock action;
 
@@ -91,7 +91,7 @@ public class ServerAdminActionsExtension {
 
 	}
 
-	public class SuspendServer implements NovaCommand<Void> {
+	public class SuspendServer implements OpenStackCommand<Void> {
 		
 		private Suspend action;
 
@@ -110,7 +110,7 @@ public class ServerAdminActionsExtension {
 
 	}
 
-	public class ResumeServer implements NovaCommand<Void> {
+	public class ResumeServer implements OpenStackCommand<Void> {
 		
 		private Resume action;
 
@@ -129,7 +129,7 @@ public class ServerAdminActionsExtension {
 
 	}
 
-	public class CreateBackupServer implements NovaCommand<Void> {
+	public class CreateBackupServer implements OpenStackCommand<Void> {
 		
 		private	CreateBackup action;
 

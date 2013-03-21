@@ -4,10 +4,10 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Role;
 
-public class UpdateRole implements KeystoneCommand<Role> {
+public class UpdateRole implements OpenStackCommand<Role> {
 
 	private Role roleForCreate;
 	

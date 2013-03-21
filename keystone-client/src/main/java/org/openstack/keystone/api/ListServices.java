@@ -3,10 +3,10 @@ package org.openstack.keystone.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Services;
 
-public class ListServices implements KeystoneCommand<Services>{
+public class ListServices implements OpenStackCommand<Services> {
 
 	@Override
 	public Services execute(WebTarget target) {

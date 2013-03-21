@@ -6,10 +6,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.swift.model.ObjectDownload;
 
-public class DownloadObject implements SwiftCommand<ObjectDownload> {
+public class DownloadObject implements OpenStackCommand<ObjectDownload> {
 
 	private String containerName;
 	

@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Network;
 import org.openstack.nova.model.Networks;
 
 public class NetworksExtension {
 	
-	public static class ListNetworks implements NovaCommand<Networks>{
+	public static class ListNetworks implements OpenStackCommand<Networks> {
 
 		@Override
 		public Networks execute(WebTarget target) {
@@ -19,7 +19,7 @@ public class NetworksExtension {
 
 	}
 
-	public static class CreateNetwork implements NovaCommand<Network> {
+	public static class CreateNetwork implements OpenStackCommand<Network> {
 
 		private Network network;
 		
@@ -34,7 +34,7 @@ public class NetworksExtension {
 		
 	}
 	
-	public class ShowNetwork implements NovaCommand<Network>{
+	public class ShowNetwork implements OpenStackCommand<Network> {
 
 		private String id;
 		
@@ -50,7 +50,7 @@ public class NetworksExtension {
 	}
 
 	
-	public static class DisassociateNetwork implements NovaCommand<Void>{
+	public static class DisassociateNetwork implements OpenStackCommand<Void> {
 
 		private String id;
 		
@@ -66,7 +66,7 @@ public class NetworksExtension {
 
 	}
 	
-	public static class DeleteNetwork implements NovaCommand<Void>{
+	public static class DeleteNetwork implements OpenStackCommand<Void> {
 
 		private String id;
 		

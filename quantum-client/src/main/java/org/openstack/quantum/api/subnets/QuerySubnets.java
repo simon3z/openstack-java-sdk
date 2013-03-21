@@ -4,11 +4,11 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.openstack.common.command.AbsOpenStackCmd;
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Subnet;
 import org.openstack.quantum.model.Subnets;
 
-public class QuerySubnets extends AbsOpenStackCmd<Subnet> implements QuantumCommand<Subnets> {
+public class QuerySubnets extends AbsOpenStackCmd<Subnet> implements OpenStackCommand<Subnets> {
 
 	public QuerySubnets(Subnet subnet) {
 		super(subnet);

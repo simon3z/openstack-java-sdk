@@ -3,10 +3,10 @@ package org.openstack.ceilometer.v1.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.ceilometer.CeilometerCommand;
 import org.openstack.ceilometer.v1.model.Extension;
+import org.openstack.common.command.OpenStackCommand;
 
-public class ShowExtension implements CeilometerCommand<Extension> {
+public class ShowExtension implements OpenStackCommand<Extension> {
 
 	private String alias;
 	

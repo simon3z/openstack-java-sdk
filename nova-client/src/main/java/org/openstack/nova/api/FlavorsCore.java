@@ -5,14 +5,14 @@ import java.util.Map;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Flavor;
 import org.openstack.nova.model.Flavors;
 import org.openstack.nova.model.Metadata;
 
 public class FlavorsCore {
 	
-	public static class ListFlavors implements NovaCommand<Flavors>{
+	public static class ListFlavors implements OpenStackCommand<Flavors> {
 
 		boolean detail;
 		
@@ -32,7 +32,7 @@ public class FlavorsCore {
 
 	}
 	
-	public static class ShowFlavor implements NovaCommand<Flavor> {
+	public static class ShowFlavor implements OpenStackCommand<Flavor> {
 
 		private String id;
 		
@@ -48,7 +48,7 @@ public class FlavorsCore {
 	}
 
 	
-	public static class ShowFlavorMetadata implements NovaCommand<Map<String, String>> {
+	public static class ShowFlavorMetadata implements OpenStackCommand<Map<String, String>> {
 
 		private String id;
 		

@@ -3,10 +3,10 @@ package org.openstack.quantum.api.subnets;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Subnet;
 
-public class ShowSubnet implements QuantumCommand<Subnet> {
+public class ShowSubnet implements OpenStackCommand<Subnet> {
 
 private String id;
 	

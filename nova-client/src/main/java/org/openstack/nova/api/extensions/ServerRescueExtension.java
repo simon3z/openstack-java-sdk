@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.Rescue;
 import org.openstack.nova.model.ServerAction.Unrescue;
 
 public class ServerRescueExtension {
 
-	public class RescueServer implements NovaCommand<Void> {
+	public class RescueServer implements OpenStackCommand<Void> {
 		
 		private Rescue action;
 
@@ -29,7 +29,7 @@ public class ServerRescueExtension {
 
 	}
 
-	public class UnrescueServer implements NovaCommand<Void> {
+	public class UnrescueServer implements OpenStackCommand<Void> {
 		
 		private Unrescue action;
 

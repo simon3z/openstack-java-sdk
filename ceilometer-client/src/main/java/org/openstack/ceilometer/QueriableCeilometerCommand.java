@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.client.WebTarget;
+import org.openstack.common.command.OpenStackCommand;
 
-public abstract class QueriableCeilometerCommand<T,R> implements CeilometerCommand<R>{
+public abstract class QueriableCeilometerCommand<T,R> implements OpenStackCommand<R> {
 	
 	protected List<String> fields = new ArrayList<String>();
 	

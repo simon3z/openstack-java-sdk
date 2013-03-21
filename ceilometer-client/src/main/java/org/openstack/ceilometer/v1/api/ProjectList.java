@@ -6,9 +6,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.openstack.ceilometer.CeilometerCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class ProjectList implements CeilometerCommand<List<String>> {
+public class ProjectList implements OpenStackCommand<List<String>> {
 	
 	private static final class Projects {
 		

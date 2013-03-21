@@ -5,11 +5,11 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 import org.openstack.glance.model.ImageForUpload;
 
-public class UploadImage implements GlanceCommand<Image>{
+public class UploadImage implements OpenStackCommand<Image> {
 	
 	private ImageForUpload imageForUpload;
 	

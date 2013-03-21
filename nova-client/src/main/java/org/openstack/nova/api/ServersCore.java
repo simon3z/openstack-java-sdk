@@ -6,7 +6,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Metadata;
 import org.openstack.nova.model.Server;
 import org.openstack.nova.model.ServerAction.ChangePassword;
@@ -21,7 +21,7 @@ import org.openstack.nova.model.Servers;
 
 public class ServersCore {
 	
-	public static class ListServers implements NovaCommand<Servers> {
+	public static class ListServers implements OpenStackCommand<Servers> {
 		
 		boolean detail;
 		
@@ -41,7 +41,7 @@ public class ServersCore {
 
 	}
 
-	public static class CreateServer implements NovaCommand<Server> {
+	public static class CreateServer implements OpenStackCommand<Server> {
 
 		private ServerForCreate serverForCreate;
 		
@@ -56,7 +56,7 @@ public class ServersCore {
 		
 	}
 	
-	public static class ShowServer implements NovaCommand<Server> {
+	public static class ShowServer implements OpenStackCommand<Server> {
 
 		private String id;
 		
@@ -71,7 +71,7 @@ public class ServersCore {
 		
 	}
 	
-	public static class ShowServerMetadata implements NovaCommand<Map<String, String>> {
+	public static class ShowServerMetadata implements OpenStackCommand<Map<String, String>> {
 
 		private String id;
 		
@@ -87,7 +87,7 @@ public class ServersCore {
 		
 	}
 	
-	public static class ShowServerAddresses implements NovaCommand<Server.Addresses> {
+	public static class ShowServerAddresses implements OpenStackCommand<Server.Addresses> {
 
 		private String id;
 		
@@ -104,7 +104,7 @@ public class ServersCore {
 
 
 	
-	public static class UpdateServer implements NovaCommand<Server> {
+	public static class UpdateServer implements OpenStackCommand<Server> {
 
 		private ServerForCreate serverForCreate;
 		
@@ -120,7 +120,7 @@ public class ServersCore {
 	}
 
 	
-	public static class DeleteServer implements NovaCommand<Void> {
+	public static class DeleteServer implements OpenStackCommand<Void> {
 
 		private String id;
 		
@@ -136,7 +136,7 @@ public class ServersCore {
 		
 	}
 	
-	public static class ChangePasswordServer implements NovaCommand<Void> {
+	public static class ChangePasswordServer implements OpenStackCommand<Void> {
 		
 		private ChangePassword action;
 
@@ -155,7 +155,7 @@ public class ServersCore {
 
 	}
 	
-	public static class RebootServer implements NovaCommand<Void> {
+	public static class RebootServer implements OpenStackCommand<Void> {
 		
 		private Reboot action;
 
@@ -174,7 +174,7 @@ public class ServersCore {
 
 	}
 	
-	public static class RebuildServer implements NovaCommand<Void> {
+	public static class RebuildServer implements OpenStackCommand<Void> {
 		
 		private final Rebuild action;
 
@@ -193,7 +193,7 @@ public class ServersCore {
 
 	}
 	
-	public static class ResizeServer implements NovaCommand<Void> {
+	public static class ResizeServer implements OpenStackCommand<Void> {
 		
 		private final Resize action;
 
@@ -212,7 +212,7 @@ public class ServersCore {
 
 	}
 	
-	public static class ConfirmResizeServer implements NovaCommand<Void> {
+	public static class ConfirmResizeServer implements OpenStackCommand<Void> {
 		
 		private static final ConfirmResize ACTION = new ConfirmResize();
 
@@ -230,7 +230,7 @@ public class ServersCore {
 
 	}
 	
-	public static class RevertResizeServer implements NovaCommand<Void> {
+	public static class RevertResizeServer implements OpenStackCommand<Void> {
 		
 		private static final RevertResize ACTION = new RevertResize();
 
@@ -248,7 +248,7 @@ public class ServersCore {
 
 	}
 	
-	public static class CreateImageServer implements NovaCommand<Void> {
+	public static class CreateImageServer implements OpenStackCommand<Void> {
 		
 		private CreateImage action;
 

@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.openstack.OpenStack;
+import org.openstack.common.command.OpenStackCommand;
 
 public class AbstractOpenStackClient {
 
@@ -119,6 +120,14 @@ public class AbstractOpenStackClient {
 		public void delete() {
 			execute("DELETE", Void.class);
 		}
+	}
+
+	public <R> R execute(OpenStackCommand<R> command) {
+		WebTarget endpoint = OpenStack.CLIENT.target(endpointURL);
+		if(token != null) {
+			endpoint.register(tokenFilter);
+		}
+		return command.execute(endpoint);
 	}
 
 }

@@ -3,10 +3,10 @@ package org.openstack.ceilometer.v1.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.ceilometer.CeilometerCommand;
 import org.openstack.ceilometer.v1.model.Sources;
+import org.openstack.common.command.OpenStackCommand;
 
-public class SourceList implements CeilometerCommand<Sources> {
+public class SourceList implements OpenStackCommand<Sources> {
 
 	@Override
 	public Sources execute(WebTarget target) {

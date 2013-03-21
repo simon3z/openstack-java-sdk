@@ -4,11 +4,11 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Subnet;
 import org.openstack.quantum.model.SubnetForCreate;
 
-public class CreateSubnet implements QuantumCommand<Subnet> {
+public class CreateSubnet implements OpenStackCommand<Subnet> {
 
 	private SubnetForCreate SubnetForCreate;
 	

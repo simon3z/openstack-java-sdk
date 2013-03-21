@@ -8,8 +8,4 @@ public class NovaClient extends AbstractOpenStackClient {
 		super(endpointURL, token);
 	}
 
-	public <R> R execute(NovaCommand<R> command) {
-		return command.execute(create(endpointURL));
-	}
-
 }

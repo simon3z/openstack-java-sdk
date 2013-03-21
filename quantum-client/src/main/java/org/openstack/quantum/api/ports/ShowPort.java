@@ -3,10 +3,10 @@ package org.openstack.quantum.api.ports;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Port;
 
-public class ShowPort implements QuantumCommand<Port> {
+public class ShowPort implements OpenStackCommand<Port> {
 
 private String id;
 	

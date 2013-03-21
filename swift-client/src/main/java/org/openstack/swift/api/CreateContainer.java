@@ -4,9 +4,9 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class CreateContainer implements SwiftCommand<Response>{
+public class CreateContainer implements OpenStackCommand<Response> {
 
 	private String containerName;
 	

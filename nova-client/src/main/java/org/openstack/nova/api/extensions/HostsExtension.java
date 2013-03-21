@@ -3,13 +3,13 @@ package org.openstack.nova.api.extensions;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Host;
 import org.openstack.nova.model.Hosts;
 
 public class HostsExtension {
 
-	public static class ListHosts implements NovaCommand<Hosts>{
+	public static class ListHosts implements OpenStackCommand<Hosts> {
 
 		@Override
 		public Hosts execute(WebTarget target) {
@@ -18,7 +18,7 @@ public class HostsExtension {
 
 	}
 
-	public static class ShowHost implements NovaCommand<Host> {
+	public static class ShowHost implements OpenStackCommand<Host> {
 
 		private String id;
 		

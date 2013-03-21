@@ -3,10 +3,10 @@ package org.openstack.quantum.api.networks;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Networks;
 
-public class ListNetworks implements QuantumCommand<Networks> {
+public class ListNetworks implements OpenStackCommand<Networks> {
 
 	public ListNetworks() {
 	}

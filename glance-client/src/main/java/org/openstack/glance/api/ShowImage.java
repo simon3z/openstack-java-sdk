@@ -6,10 +6,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 
-public class ShowImage implements GlanceCommand<Image> {
+public class ShowImage implements OpenStackCommand<Image> {
 	
 	private String id;
 	

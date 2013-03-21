@@ -3,9 +3,9 @@ package org.openstack.quantum.api.networks;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class DeleteNetwork implements QuantumCommand<Void> {
+public class DeleteNetwork implements OpenStackCommand<Void> {
 	
 	private String id;
 	

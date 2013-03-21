@@ -3,9 +3,9 @@ package org.openstack.keystone.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class DeleteService implements KeystoneCommand<Void> {
+public class DeleteService implements OpenStackCommand<Void> {
 
 	private String id;
 	

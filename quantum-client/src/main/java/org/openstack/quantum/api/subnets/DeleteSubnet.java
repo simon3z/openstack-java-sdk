@@ -3,9 +3,9 @@ package org.openstack.quantum.api.subnets;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class DeleteSubnet implements QuantumCommand<Void> {
+public class DeleteSubnet implements OpenStackCommand<Void> {
 
 private String id;
 	

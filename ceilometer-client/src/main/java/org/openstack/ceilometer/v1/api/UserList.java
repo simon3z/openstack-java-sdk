@@ -6,9 +6,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.openstack.ceilometer.CeilometerCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class UserList implements CeilometerCommand<List<String>> {
+public class UserList implements OpenStackCommand<List<String>> {
 	
 	private static final class Users {
 		
@@ -31,6 +31,5 @@ public class UserList implements CeilometerCommand<List<String>> {
 		}
 		return target.path("v1/users").request(MediaType.APPLICATION_JSON).get(Users.class).users;
 	}
-	
-	
+
 }

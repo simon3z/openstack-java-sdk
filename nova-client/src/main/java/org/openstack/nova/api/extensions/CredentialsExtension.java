@@ -3,13 +3,13 @@ package org.openstack.nova.api.extensions;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Certificate;
 import org.openstack.nova.model.KeyPairs;
 
 public class CredentialsExtension {
 
-	public static class CreateCertificate implements NovaCommand<Certificate> {
+	public static class CreateCertificate implements OpenStackCommand<Certificate> {
 
 		private String id;
 		
@@ -25,7 +25,7 @@ public class CredentialsExtension {
 		
 	}
 	
-	public static class ShowCertificate implements NovaCommand<KeyPairs>{
+	public static class ShowCertificate implements OpenStackCommand<KeyPairs> {
 
 		@Override
 		public KeyPairs execute(WebTarget target) {

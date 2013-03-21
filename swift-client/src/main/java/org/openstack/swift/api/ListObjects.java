@@ -7,10 +7,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.swift.model.Object;
 
-public class ListObjects implements SwiftCommand<List<Object>>{
+public class ListObjects implements OpenStackCommand<List<Object>> {
 
 	private String containerName;
 	

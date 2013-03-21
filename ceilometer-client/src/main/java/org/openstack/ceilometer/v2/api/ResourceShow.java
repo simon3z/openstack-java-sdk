@@ -3,11 +3,11 @@ package org.openstack.ceilometer.v2.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.ceilometer.CeilometerCommand;
 import org.openstack.ceilometer.v2.model.Resource;
+import org.openstack.common.command.OpenStackCommand;
 
 
-public class ResourceShow implements CeilometerCommand<Resource> {
+public class ResourceShow implements OpenStackCommand<Resource> {
 
 	private String id;
 		

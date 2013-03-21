@@ -6,13 +6,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Flavor;
 import org.openstack.nova.model.FlavorForCreate;
 
 public class FlavorsExtension {
 	
-	public static class CreateFlavor implements NovaCommand<Flavor> {
+	public static class CreateFlavor implements OpenStackCommand<Flavor> {
 
 		private FlavorForCreate flavorForCreate;
 		
@@ -30,7 +30,7 @@ public class FlavorsExtension {
 		
 	}
 
-	public static class DeleteFlavor implements NovaCommand<Void> {
+	public static class DeleteFlavor implements OpenStackCommand<Void> {
 
 		private String id;
 		

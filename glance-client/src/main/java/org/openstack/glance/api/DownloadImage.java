@@ -7,11 +7,11 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 import org.openstack.glance.model.ImageDownload;
 
-public class DownloadImage implements GlanceCommand<ImageDownload> {
+public class DownloadImage implements OpenStackCommand<ImageDownload> {
 
 	private String id;
 	

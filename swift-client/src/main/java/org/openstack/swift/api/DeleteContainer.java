@@ -4,9 +4,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class DeleteContainer implements SwiftCommand<Response>{
+public class DeleteContainer implements OpenStackCommand<Response> {
 
 	private String containerName;
 	

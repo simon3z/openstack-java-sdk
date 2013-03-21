@@ -3,9 +3,9 @@ package org.openstack.swift.api;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 
-import org.openstack.swift.SwiftCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class CreateDirectory implements SwiftCommand<Void> {
+public class CreateDirectory implements OpenStackCommand<Void> {
 
 	private String container;
 	

@@ -12,8 +12,4 @@ public class KeystoneClient extends AbstractOpenStackClient {
 		super(endpointURL, null);
 	}
 
-	public <R> R execute(KeystoneCommand<R> command) {
-		return command.execute(create(endpointURL));
-	}
-
 }

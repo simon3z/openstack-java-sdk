@@ -3,10 +3,10 @@ package org.openstack.keystone.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Service;
 
-public class ShowService implements KeystoneCommand<Service>{
+public class ShowService implements OpenStackCommand<Service> {
 	
 	private String id;
 	

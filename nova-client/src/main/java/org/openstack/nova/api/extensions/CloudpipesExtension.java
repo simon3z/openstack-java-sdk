@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Cloudpipe;
 import org.openstack.nova.model.Cloudpipes;
 
 public class CloudpipesExtension {
 	
-	public static class ListCloudpipes implements NovaCommand<Cloudpipes>{
+	public static class ListCloudpipes implements OpenStackCommand<Cloudpipes> {
 
 		@Override
 		public Cloudpipes execute(WebTarget target) {
@@ -19,7 +19,7 @@ public class CloudpipesExtension {
 
 	}
 
-	public static class CreateCloudpipe implements NovaCommand<Cloudpipe> {
+	public static class CreateCloudpipe implements OpenStackCommand<Cloudpipe> {
 
 		private Cloudpipe cloudpipe;
 		

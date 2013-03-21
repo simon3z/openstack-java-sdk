@@ -3,9 +3,9 @@ package org.openstack.keystone.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class RemoveUserFromTenant implements KeystoneCommand<Void> {
+public class RemoveUserFromTenant implements OpenStackCommand<Void> {
 
 	private String tenantId;
 	private String userId;

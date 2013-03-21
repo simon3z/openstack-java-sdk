@@ -4,10 +4,10 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.User;
 
-public class CreateUser implements KeystoneCommand<User> {
+public class CreateUser implements OpenStackCommand<User> {
 
 	private User userForCreate;
 	

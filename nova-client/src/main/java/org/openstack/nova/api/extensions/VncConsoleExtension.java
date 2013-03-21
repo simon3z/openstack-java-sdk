@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.GetVncConsole;
 import org.openstack.nova.model.ServerAction.VncConsole;
 
 public class VncConsoleExtension {
 
-	public static class GetVncConsoleServer implements NovaCommand<VncConsole> {
+	public static class GetVncConsoleServer implements OpenStackCommand<VncConsole> {
 		
 		private GetVncConsole action;
 

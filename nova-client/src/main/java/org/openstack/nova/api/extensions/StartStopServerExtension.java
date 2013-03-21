@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.Start;
 import org.openstack.nova.model.ServerAction.Stop;
 
 public class StartStopServerExtension {
 
-	public class StartServer implements NovaCommand<Void> {
+	public class StartServer implements OpenStackCommand<Void> {
 		
 		private Start action;
 
@@ -29,7 +29,7 @@ public class StartStopServerExtension {
 
 	}
 	
-	public class StopServer implements NovaCommand<Void> {
+	public class StopServer implements OpenStackCommand<Void> {
 		
 		private Stop action;
 

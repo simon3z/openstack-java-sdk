@@ -4,14 +4,14 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Access;
 import org.openstack.keystone.model.Authentication;
 import org.openstack.keystone.model.Authentication.ApiAccessKeyCredentials;
 import org.openstack.keystone.model.Authentication.PasswordCredentials;
 import org.openstack.keystone.model.Authentication.Token;
 
-public class Authenticate implements KeystoneCommand<Access> {
+public class Authenticate implements OpenStackCommand<Access> {
 	
 	private Authentication authentication;
 	

@@ -7,10 +7,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.ImageMember;
 
-public class ReplaceImageMemberships implements GlanceCommand<Void>{
+public class ReplaceImageMemberships implements OpenStackCommand<Void> {
 
 	private String id;
 	

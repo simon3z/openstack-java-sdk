@@ -3,9 +3,9 @@ package org.openstack.glance.api;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.glance.GlanceCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class DeleteImage implements GlanceCommand<Void> {
+public class DeleteImage implements OpenStackCommand<Void> {
 	
 	private String id;
 	
@@ -18,7 +18,5 @@ public class DeleteImage implements GlanceCommand<Void> {
 		target.path("images").path(id).request(MediaType.WILDCARD).delete();
 		return null;
 	}
-	
-	
 	
 }

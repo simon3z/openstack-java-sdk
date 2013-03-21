@@ -4,9 +4,9 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.keystone.KeystoneCommand;
+import org.openstack.common.command.OpenStackCommand;
 
-public class AddUserToTenant implements KeystoneCommand<Void> {
+public class AddUserToTenant implements OpenStackCommand<Void> {
 
 	private String tenantId;
 	private String userId;

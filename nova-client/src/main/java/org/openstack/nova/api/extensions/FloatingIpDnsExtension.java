@@ -4,13 +4,13 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.openstack.nova.NovaCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.FloatingIpDomain;
 import org.openstack.nova.model.FloatingIpDomains;
 
 public class FloatingIpDnsExtension {
 	
-	public class ListFloatingIpDomains implements NovaCommand<FloatingIpDomains>{
+	public class ListFloatingIpDomains implements OpenStackCommand<FloatingIpDomains> {
 
 		@Override
 		public FloatingIpDomains execute(WebTarget target) {
@@ -19,7 +19,7 @@ public class FloatingIpDnsExtension {
 
 	}
 
-	public static class CreateFloatingIpDomain implements NovaCommand<FloatingIpDomain> {
+	public static class CreateFloatingIpDomain implements OpenStackCommand<FloatingIpDomain> {
 
 		private FloatingIpDomain floatingIpDomain;
 		
@@ -34,7 +34,7 @@ public class FloatingIpDnsExtension {
 		
 	}
 	
-	public static class ShowFloatingIpDomain implements NovaCommand<FloatingIpDomain> {
+	public static class ShowFloatingIpDomain implements OpenStackCommand<FloatingIpDomain> {
 
 		private String id;
 		
@@ -50,7 +50,7 @@ public class FloatingIpDnsExtension {
 	}
 
 	
-	public static class UpdateFloatingIpDomain implements NovaCommand<FloatingIpDomain> {
+	public static class UpdateFloatingIpDomain implements OpenStackCommand<FloatingIpDomain> {
 
 		private FloatingIpDomain floatingIpDomain;
 		
@@ -66,7 +66,7 @@ public class FloatingIpDnsExtension {
 	}
 
 	
-	public class DeleteFloatingIpDomain implements NovaCommand<Void> {
+	public class DeleteFloatingIpDomain implements OpenStackCommand<Void> {
 
 		private String id;
 		

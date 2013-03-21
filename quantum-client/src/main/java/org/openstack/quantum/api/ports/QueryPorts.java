@@ -4,11 +4,11 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.openstack.common.command.AbsOpenStackCmd;
-import org.openstack.quantum.client.QuantumCommand;
+import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Port;
 import org.openstack.quantum.model.Ports;
 
-public class QueryPorts extends AbsOpenStackCmd<Port> implements QuantumCommand<Ports> {
+public class QueryPorts extends AbsOpenStackCmd<Port> implements OpenStackCommand<Ports> {
 
 	public QueryPorts(Port port) {
 		super(port);
