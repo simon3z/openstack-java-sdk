@@ -1,8 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class RemoveUserFromTenant implements OpenStackCommand<Void> {
@@ -18,8 +16,8 @@ public class RemoveUserFromTenant implements OpenStackCommand<Void> {
 	}
 	
 	@Override
-	public Void execute(WebTarget target) {
-		target.path("tenants").path(tenantId).path("users").path(userId).path("roles/OS-KSADM").path(roleId).request(MediaType.APPLICATION_JSON).delete();
+	public Void execute(OpenStackTarget target) {
+		target.path("tenants").path(tenantId).path("users").path(userId).path("roles/OS-KSADM").path(roleId).delete();
 		return null;
 	}
 

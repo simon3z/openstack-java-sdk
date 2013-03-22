@@ -1,9 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Tenant;
 
@@ -16,8 +13,8 @@ public class UpdateTenant implements OpenStackCommand<Tenant> {
 	}
 
 	@Override
-	public Tenant execute(WebTarget target) {
-		return target.path("tenants").path(tenant.getId()).request(MediaType.APPLICATION_JSON).put(Entity.json(tenant), Tenant.class);
+	public Tenant execute(OpenStackTarget target) {
+		return target.path("tenants").path(tenant.getId()).putEntity(tenant, Tenant.class);
 	}
 	
 }

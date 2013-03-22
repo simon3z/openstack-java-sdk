@@ -1,8 +1,8 @@
 package org.openstack.swift.api;
 
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class CreateDirectory implements OpenStackCommand<Void> {
@@ -17,8 +17,8 @@ public class CreateDirectory implements OpenStackCommand<Void> {
 	}
 
 	@Override
-	public Void execute(WebTarget endpoint) {
-		endpoint.path(container).path(path).request().put(Entity.entity(new byte[1],"application/directory"));
+	public Void execute(OpenStackTarget endpoint) {
+		endpoint.getWebTarget().path(container).path(path).request().put(Entity.entity(new byte[1],"application/directory"));
 		return null;
 	}
 	

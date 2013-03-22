@@ -4,9 +4,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ws.rs.client.WebTarget;
-
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.openstack.common.client.OpenStackTarget;
 
 public class AbsOpenStackCmd<T> {
 
@@ -67,7 +66,7 @@ public class AbsOpenStackCmd<T> {
 		return resultMap;
 	}
 
-	public WebTarget queryParam(WebTarget target) {
+	public OpenStackTarget queryParam(OpenStackTarget target) {
 		Map<String, String> map = getObjectParamMap(this.query);
 		for (String fieldName : map.keySet()) {
 			target = target.queryParam(fieldName, map.get(fieldName));

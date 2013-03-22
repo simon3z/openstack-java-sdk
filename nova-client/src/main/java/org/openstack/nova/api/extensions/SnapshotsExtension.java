@@ -2,10 +2,7 @@ package org.openstack.nova.api.extensions;
 
 import java.util.Map;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Metadata;
 import org.openstack.nova.model.Snapshot;
@@ -27,9 +24,9 @@ public class SnapshotsExtension {
 		}
 
 		@Override
-		public Snapshots execute(WebTarget target) {
+		public Snapshots execute(OpenStackTarget target) {
 			String path = detail ? "os-snapshots/detail" : "os-snapshots";
-			return target.path(path).request(MediaType.APPLICATION_JSON).get(Snapshots.class);
+			return target.path(path).get(Snapshots.class);
 		}
 
 	}
@@ -43,8 +40,8 @@ public class SnapshotsExtension {
 		}
 
 		@Override
-		public Snapshot execute(WebTarget target) {
-			return target.path("os-snapshots").request(MediaType.APPLICATION_JSON).post(Entity.json(snapshotForCreate), Snapshot.class);
+		public Snapshot execute(OpenStackTarget target) {
+			return target.path("os-snapshots").postEntity(snapshotForCreate, Snapshot.class);
 		}
 		
 	}
@@ -58,8 +55,8 @@ public class SnapshotsExtension {
 		}
 
 		@Override
-		public Map<String, String> execute(WebTarget target) {
-			Metadata metadata = target.path("os-snapshots").path(id).path("metadata").request(MediaType.APPLICATION_JSON).get(Metadata.class);
+		public Map<String, String> execute(OpenStackTarget target) {
+			Metadata metadata = target.path("os-snapshots").path(id).path("metadata").get(Metadata.class);
 			return metadata.getMetadata();
 		}
 		
@@ -75,8 +72,8 @@ public class SnapshotsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-snapshots").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-snapshots").path(id).delete();
 			return null;
 		}
 		

@@ -2,10 +2,7 @@ package org.openstack.nova.api;
 
 import java.util.Map;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Metadata;
 import org.openstack.nova.model.Server;
@@ -34,9 +31,9 @@ public class ServersCore {
 		}
 
 		@Override
-		public Servers execute(WebTarget target) {
+		public Servers execute(OpenStackTarget target) {
 			String path = detail ? "servers/detail" : "servers";
-			return target.path(path).request(MediaType.APPLICATION_JSON).get(Servers.class);
+			return target.path(path).get(Servers.class);
 		}
 
 	}
@@ -50,8 +47,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Server execute(WebTarget target) {
-			return target.path("servers").request(MediaType.APPLICATION_JSON).post(Entity.json(serverForCreate), Server.class);
+		public Server execute(OpenStackTarget target) {
+			return target.path("servers").postEntity(serverForCreate, Server.class);
 		}
 		
 	}
@@ -65,8 +62,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Server execute(WebTarget target) {
-			return target.path("servers").path(id).request(MediaType.APPLICATION_JSON).get(Server.class);
+		public Server execute(OpenStackTarget target) {
+			return target.path("servers").path(id).get(Server.class);
 		}
 		
 	}
@@ -80,8 +77,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Map<String, String> execute(WebTarget target) {
-			Metadata metadata = target.path("servers").path(id).path("metadata").request(MediaType.APPLICATION_JSON).get(Metadata.class);
+		public Map<String, String> execute(OpenStackTarget target) {
+			Metadata metadata = target.path("servers").path(id).path("metadata").get(Metadata.class);
 			return metadata.getMetadata();
 		}
 		
@@ -96,8 +93,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Server.Addresses execute(WebTarget target) {
-			return target.path("servers").path(id).path("ips").request(MediaType.APPLICATION_JSON).get(Server.Addresses.class);
+		public Server.Addresses execute(OpenStackTarget target) {
+			return target.path("servers").path(id).path("ips").get(Server.Addresses.class);
 		}
 		
 	}
@@ -113,8 +110,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Server execute(WebTarget target) {
-			return target.path("servers").request(MediaType.APPLICATION_JSON).post(Entity.json(serverForCreate), Server.class);
+		public Server execute(OpenStackTarget target) {
+			return target.path("servers").postEntity(serverForCreate, Server.class);
 		}
 		
 	}
@@ -129,8 +126,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).delete();
 			return null;
 		}
 		
@@ -148,8 +145,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -167,8 +164,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -186,8 +183,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -205,8 +202,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -214,7 +211,7 @@ public class ServersCore {
 	
 	public static class ConfirmResizeServer implements OpenStackCommand<Void> {
 		
-		private static final ConfirmResize ACTION = new ConfirmResize();
+		private static final ConfirmResize action = new ConfirmResize();
 
 		private final String id;
 		
@@ -223,8 +220,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(ACTION));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -232,7 +229,7 @@ public class ServersCore {
 	
 	public static class RevertResizeServer implements OpenStackCommand<Void> {
 		
-		private static final RevertResize ACTION = new RevertResize();
+		private static final RevertResize action = new RevertResize();
 
 		private final String id;
 		
@@ -241,8 +238,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(ACTION));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -260,8 +257,8 @@ public class ServersCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 

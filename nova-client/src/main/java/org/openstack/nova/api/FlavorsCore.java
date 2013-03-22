@@ -2,9 +2,7 @@ package org.openstack.nova.api;
 
 import java.util.Map;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Flavor;
 import org.openstack.nova.model.Flavors;
@@ -25,9 +23,9 @@ public class FlavorsCore {
 		}
 
 		@Override
-		public Flavors execute(WebTarget target) {
+		public Flavors execute(OpenStackTarget target) {
 			String path = detail ? "flavors/detail" : "flavors";
-			return target.path(path).request(MediaType.APPLICATION_JSON).get(Flavors.class);
+			return target.path(path).get(Flavors.class);
 		}
 
 	}
@@ -41,8 +39,8 @@ public class FlavorsCore {
 		}
 
 		@Override
-		public Flavor execute(WebTarget target) {
-			return target.path("flavors").path(id).request(MediaType.APPLICATION_JSON).get(Flavor.class);
+		public Flavor execute(OpenStackTarget target) {
+			return target.path("flavors").path(id).get(Flavor.class);
 		}
 		
 	}
@@ -57,8 +55,8 @@ public class FlavorsCore {
 		}
 
 		@Override
-		public Map<String, String> execute(WebTarget target) {
-			Metadata metadata = target.path("flavors").path(id).path("metadata").request(MediaType.APPLICATION_JSON).get(Metadata.class);
+		public Map<String, String> execute(OpenStackTarget target) {
+			Metadata metadata = target.path("flavors").path(id).path("metadata").get(Metadata.class);
 			return metadata.getMetadata();
 		}
 		

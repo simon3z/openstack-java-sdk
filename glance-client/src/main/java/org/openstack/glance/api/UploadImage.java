@@ -2,9 +2,9 @@ package org.openstack.glance.api;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 import org.openstack.glance.model.ImageForUpload;
@@ -18,8 +18,8 @@ public class UploadImage implements OpenStackCommand<Image> {
 	}
 
 	@Override
-	public Image execute(WebTarget target) {
-		Invocation.Builder invocationBuilder = target.path("images").request(MediaType.APPLICATION_JSON);
+	public Image execute(OpenStackTarget target) {
+		Invocation.Builder invocationBuilder = target.getWebTarget().path("images").request(MediaType.APPLICATION_JSON);
 		if(imageForUpload.getName() != null) {
 			invocationBuilder = invocationBuilder.header("x-image-meta-name", imageForUpload.getName());
 		}

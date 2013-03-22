@@ -123,9 +123,9 @@ public class AbstractOpenStackClient {
 	}
 
 	public <R> R execute(OpenStackCommand<R> command) {
-		WebTarget endpoint = OpenStack.CLIENT.target(endpointURL);
+		OpenStackTarget endpoint = new OpenStackTarget(OpenStack.CLIENT.target(endpointURL));
 		if(token != null) {
-			endpoint.register(tokenFilter);
+			endpoint.getWebTarget().register(tokenFilter);
 		}
 		return command.execute(endpoint);
 	}

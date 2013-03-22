@@ -2,10 +2,7 @@ package org.openstack.nova.api.extensions;
 
 import java.util.Map;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Metadata;
 import org.openstack.nova.model.Volume;
@@ -28,9 +25,9 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Volumes execute(WebTarget target) {
+		public Volumes execute(OpenStackTarget target) {
 			String path = detail ? "os-volumes/detail" : "os-volumes";
-			return target.path(path).request(MediaType.APPLICATION_JSON).get(Volumes.class);
+			return target.path(path).get(Volumes.class);
 		}
 
 	}
@@ -45,8 +42,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Volume execute(WebTarget target) {
-			return target.path("os-volumes").request(MediaType.APPLICATION_JSON).post(Entity.json(volumeForCreate), Volume.class);
+		public Volume execute(OpenStackTarget target) {
+			return target.path("os-volumes").postEntity(volumeForCreate, Volume.class);
 		}
 		
 	}
@@ -60,8 +57,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Volume execute(WebTarget target) {
-			return target.path("os-volumes").path(id).request(MediaType.APPLICATION_JSON).get(Volume.class);
+		public Volume execute(OpenStackTarget target) {
+			return target.path("os-volumes").path(id).get(Volume.class);
 		}
 		
 	}
@@ -76,8 +73,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Map<String, String> execute(WebTarget target) {
-			Metadata metadata = target.path("os-volumes").path(id).path("metadata").request(MediaType.APPLICATION_JSON).get(Metadata.class);
+		public Map<String, String> execute(OpenStackTarget target) {
+			Metadata metadata = target.path("os-volumes").path(id).path("metadata").get(Metadata.class);
 			return metadata.getMetadata();
 		}
 		
@@ -98,8 +95,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(serverId).path("os-volume_attachments").request(MediaType.APPLICATION_JSON).post(Entity.json(volumeAttachment));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(serverId).path("os-volume_attachments").postEntity(volumeAttachment);
 			return null;
 		}
 
@@ -117,8 +114,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(serverId).path("os-volume_attachments").path(volumeId).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(serverId).path("os-volume_attachments").path(volumeId).delete();
 			return null;
 		}
 
@@ -133,8 +130,8 @@ public class VolumesExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-volumes").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-volumes").path(id).delete();
 			return null;
 		}
 		

@@ -1,8 +1,6 @@
 package org.openstack.nova.api.extensions;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Host;
 import org.openstack.nova.model.Hosts;
@@ -12,8 +10,8 @@ public class HostsExtension {
 	public static class ListHosts implements OpenStackCommand<Hosts> {
 
 		@Override
-		public Hosts execute(WebTarget target) {
-			return target.path("os-hosts").request(MediaType.APPLICATION_JSON).get(Hosts.class);
+		public Hosts execute(OpenStackTarget target) {
+			return target.path("os-hosts").get(Hosts.class);
 		}
 
 	}
@@ -27,8 +25,8 @@ public class HostsExtension {
 		}
 
 		@Override
-		public Host execute(WebTarget target) {
-			return target.path("os-hosts").path(id).request(MediaType.APPLICATION_JSON).get(Host.class);
+		public Host execute(OpenStackTarget target) {
+			return target.path("os-hosts").path(id).get(Host.class);
 		}
 		
 	}

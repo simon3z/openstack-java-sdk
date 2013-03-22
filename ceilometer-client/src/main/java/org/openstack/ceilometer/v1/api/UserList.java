@@ -2,10 +2,8 @@ package org.openstack.ceilometer.v1.api;
 
 import java.util.List;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class UserList implements OpenStackCommand<List<String>> {
@@ -25,11 +23,11 @@ public class UserList implements OpenStackCommand<List<String>> {
 	}
 
 	@Override
-	public List<String> execute(WebTarget target) {
+	public List<String> execute(OpenStackTarget target) {
 		if(source != null) {
 			target = target.path("/sources").path(source);
 		}
-		return target.path("v1/users").request(MediaType.APPLICATION_JSON).get(Users.class).users;
+		return target.path("v1/users").get(Users.class).users;
 	}
 
 }

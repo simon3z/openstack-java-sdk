@@ -1,8 +1,6 @@
 package org.openstack.nova.api.extensions;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Certificate;
 import org.openstack.nova.model.KeyPairs;
@@ -18,8 +16,8 @@ public class CredentialsExtension {
 		}
 
 		@Override
-		public Certificate execute(WebTarget target) {
-			target.path("os-certificates").path(id).request(MediaType.APPLICATION_JSON).method("POST");
+		public Certificate execute(OpenStackTarget target) {
+			target.path("os-certificates").path(id).post();
 			return null;
 		}
 		
@@ -28,8 +26,8 @@ public class CredentialsExtension {
 	public static class ShowCertificate implements OpenStackCommand<KeyPairs> {
 
 		@Override
-		public KeyPairs execute(WebTarget target) {
-			return target.path("os-keypairs").request(MediaType.APPLICATION_JSON).get(KeyPairs.class);
+		public KeyPairs execute(OpenStackTarget target) {
+			return target.path("os-keypairs").get(KeyPairs.class);
 		}
 
 	}

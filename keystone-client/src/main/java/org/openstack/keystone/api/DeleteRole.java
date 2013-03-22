@@ -1,8 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class DeleteRole implements OpenStackCommand<Void> {
@@ -14,8 +12,8 @@ public class DeleteRole implements OpenStackCommand<Void> {
 	}
 
 	@Override
-	public Void execute(WebTarget target) {
-		target.path("OS-KSADM/roles").path(id).request(MediaType.APPLICATION_JSON).delete();
+	public Void execute(OpenStackTarget target) {
+		target.path("OS-KSADM/roles").path(id).delete();
 		return null;
 	}
 	

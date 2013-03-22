@@ -1,9 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Service;
 
@@ -16,8 +13,8 @@ public class CreateService implements OpenStackCommand<Service> {
 	}
 
 	@Override
-	public Service execute(WebTarget target) {
-		return target.path("OS-KSADM/services").request(MediaType.APPLICATION_JSON).post(Entity.json(serviceForCreate), Service.class);
+	public Service execute(OpenStackTarget target) {
+		return target.path("OS-KSADM/services").postEntity(serviceForCreate, Service.class);
 	}
 	
 }

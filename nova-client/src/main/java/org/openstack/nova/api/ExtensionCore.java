@@ -15,9 +15,7 @@
  */
 package org.openstack.nova.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Extensions;
 
@@ -40,9 +38,9 @@ public class ExtensionCore {
     }
 
     @Override
-    public Extensions execute(WebTarget target) {
+    public Extensions execute(OpenStackTarget target) {
       String path = detail ? "extensions/detail" : "extensions";
-      return target.path(path).request(MediaType.APPLICATION_JSON).get(Extensions.class);
+      return target.path(path).get(Extensions.class);
       //throw new UnsupportedOperationException("Not supported yet.");
     }
   }

@@ -2,11 +2,8 @@ package org.openstack.glance.api;
 
 import java.util.Collection;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.ImageMember;
 
@@ -22,8 +19,8 @@ public class ReplaceImageMemberships implements OpenStackCommand<Void> {
 	}
 	
 	@Override
-	public Void execute(WebTarget endpoint) {
-		endpoint.path("images").path(id).path("members").request(MediaType.APPLICATION_JSON).put(Entity.json(new Memberships(imageMembers)));
+	public Void execute(OpenStackTarget endpoint) {
+		endpoint.path("images").path(id).path("members").putEntity(new Memberships(imageMembers));
 		return null;
 	}
 	

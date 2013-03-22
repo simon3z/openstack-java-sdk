@@ -3,10 +3,10 @@ package org.openstack.swift.api;
 import java.util.List;
 import java.util.Map;
 
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.swift.model.Object;
 
@@ -22,14 +22,14 @@ public class ListObjects implements OpenStackCommand<List<Object>> {
 	}
 	
 	@Override
-	public List<Object> execute(WebTarget target) {
+	public List<Object> execute(OpenStackTarget target) {
 		target = target.path(containerName);
 		for(String filter : new String[]{"prefix","delimiter","path","marker"}) {
 			if(filters.get(filter) != null) {
 				target = target.queryParam(filter, filters.get(filter));
 			}
 		}
-		return target.request(MediaType.APPLICATION_JSON).get(new GenericType<List<Object>>(){});
+		return target.getWebTarget().request(MediaType.APPLICATION_JSON).get(new GenericType<List<Object>>(){});
 	}
 
 }

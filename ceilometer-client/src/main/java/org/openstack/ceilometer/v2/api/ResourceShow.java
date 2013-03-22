@@ -1,9 +1,7 @@
 package org.openstack.ceilometer.v2.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
 import org.openstack.ceilometer.v2.model.Resource;
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 
@@ -17,11 +15,11 @@ public class ResourceShow implements OpenStackCommand<Resource> {
 	}
 	
 	@Override
-	public Resource execute(WebTarget target) {
+	public Resource execute(OpenStackTarget target) {
 		if(id == null) {
 			throw new UnsupportedOperationException("resource id is mandatory");
 		}
-		return target.path("resources").path(id).request(MediaType.APPLICATION_JSON).get(Resource.class);
+		return target.path("resources").path(id).get(Resource.class);
 	}
 
 }

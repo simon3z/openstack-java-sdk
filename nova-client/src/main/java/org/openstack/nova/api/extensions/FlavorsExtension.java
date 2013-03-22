@@ -2,10 +2,7 @@ package org.openstack.nova.api.extensions;
 
 import java.util.UUID;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Flavor;
 import org.openstack.nova.model.FlavorForCreate;
@@ -21,11 +18,11 @@ public class FlavorsExtension {
 		}
 
 		@Override
-		public Flavor execute(WebTarget target) {
+		public Flavor execute(OpenStackTarget target) {
 			if(flavorForCreate.getId() == null) {
 				flavorForCreate.setId(UUID.randomUUID().toString());
 			}
-			return target.path("flavors").request(MediaType.APPLICATION_JSON).post(Entity.json(flavorForCreate), Flavor.class);
+			return target.path("flavors").postEntity(flavorForCreate, Flavor.class);
 		}
 		
 	}
@@ -39,8 +36,8 @@ public class FlavorsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("flavors").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("flavors").path(id).delete();
 			return null;
 		}
 		

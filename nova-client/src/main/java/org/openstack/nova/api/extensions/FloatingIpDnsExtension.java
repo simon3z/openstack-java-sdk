@@ -1,9 +1,6 @@
 package org.openstack.nova.api.extensions;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.FloatingIpDomain;
 import org.openstack.nova.model.FloatingIpDomains;
@@ -13,8 +10,8 @@ public class FloatingIpDnsExtension {
 	public class ListFloatingIpDomains implements OpenStackCommand<FloatingIpDomains> {
 
 		@Override
-		public FloatingIpDomains execute(WebTarget target) {
-			return target.path("os-floating-ip-dns").request(MediaType.APPLICATION_JSON).get(FloatingIpDomains.class);
+		public FloatingIpDomains execute(OpenStackTarget target) {
+			return target.path("os-floating-ip-dns").get(FloatingIpDomains.class);
 		}
 
 	}
@@ -28,8 +25,8 @@ public class FloatingIpDnsExtension {
 		}
 
 		@Override
-		public FloatingIpDomain execute(WebTarget target) {
-			return target.path("os-floating-ip-dns").request(MediaType.APPLICATION_JSON).post(Entity.json(floatingIpDomain), FloatingIpDomain.class);
+		public FloatingIpDomain execute(OpenStackTarget target) {
+			return target.path("os-floating-ip-dns").postEntity(floatingIpDomain, FloatingIpDomain.class);
 		}
 		
 	}
@@ -43,8 +40,8 @@ public class FloatingIpDnsExtension {
 		}
 
 		@Override
-		public FloatingIpDomain execute(WebTarget target) {
-			return target.path("os-floating-ip-dns").path(id).request(MediaType.APPLICATION_JSON).get(FloatingIpDomain.class);
+		public FloatingIpDomain execute(OpenStackTarget target) {
+			return target.path("os-floating-ip-dns").path(id).get(FloatingIpDomain.class);
 		}
 		
 	}
@@ -59,8 +56,8 @@ public class FloatingIpDnsExtension {
 		}
 
 		@Override
-		public FloatingIpDomain execute(WebTarget target) {
-			return target.path("os-floating-ip-dns").request(MediaType.APPLICATION_JSON).post(Entity.json(floatingIpDomain), FloatingIpDomain.class);
+		public FloatingIpDomain execute(OpenStackTarget target) {
+			return target.path("os-floating-ip-dns").postEntity(floatingIpDomain, FloatingIpDomain.class);
 		}
 		
 	}
@@ -75,8 +72,8 @@ public class FloatingIpDnsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-floating-ip-dns").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-floating-ip-dns").path(id).delete();
 			return null;
 		}
 		

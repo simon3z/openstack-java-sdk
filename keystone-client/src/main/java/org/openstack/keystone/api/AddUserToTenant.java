@@ -1,9 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class AddUserToTenant implements OpenStackCommand<Void> {
@@ -19,8 +16,8 @@ public class AddUserToTenant implements OpenStackCommand<Void> {
 	}
 	
 	@Override
-	public Void execute(WebTarget target) {
-		target.path("tenants").path(tenantId).path("users").path(userId).path("roles/OS-KSADM").path(roleId).request(MediaType.APPLICATION_JSON).put(Entity.json("{}"));
+	public Void execute(OpenStackTarget target) {
+		target.path("tenants").path(tenantId).path("users").path(userId).path("roles/OS-KSADM").path(roleId).putEntity("{}");
 		return null;
 	}
 

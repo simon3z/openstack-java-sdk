@@ -2,10 +2,10 @@ package org.openstack.glance.api;
 
 import java.util.Calendar;
 
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 
@@ -18,9 +18,9 @@ public class ShowImage implements OpenStackCommand<Image> {
 	}
 
 	@Override
-	public Image execute(WebTarget target) {
+	public Image execute(OpenStackTarget target) {
 		//
-		Response response = target.path("images").path(id).request(MediaType.APPLICATION_JSON).head();
+		Response response = target.getWebTarget().path("images").path(id).request(MediaType.APPLICATION_JSON).head();
 		Image image = new Image();
 		image.setId(response.getHeaderString("X-Image-Meta-Id"));
 		image.setUri(response.getHeaderString("Location"));

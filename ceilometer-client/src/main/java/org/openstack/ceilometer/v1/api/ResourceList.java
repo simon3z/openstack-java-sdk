@@ -1,9 +1,7 @@
 package org.openstack.ceilometer.v1.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
 import org.openstack.ceilometer.v1.model.Resources;
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class ResourceList implements OpenStackCommand<Resources> {
@@ -30,7 +28,7 @@ public class ResourceList implements OpenStackCommand<Resources> {
 	}
 	
 	@Override
-	public Resources execute(WebTarget target) {
+	public Resources execute(OpenStackTarget target) {
 		if(source != null) {
 			target = target.path("sources").path(source);
 		} else if(project != null) {
@@ -38,7 +36,7 @@ public class ResourceList implements OpenStackCommand<Resources> {
 		} else if(user != null) {
 			target = target.path("users").path(user);
 		}
-		return target.path("resources").request(MediaType.APPLICATION_JSON).get(Resources.class);
+		return target.path("resources").get(Resources.class);
 	}
 
 }

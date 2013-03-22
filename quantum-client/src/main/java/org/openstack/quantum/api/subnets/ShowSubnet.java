@@ -1,8 +1,6 @@
 package org.openstack.quantum.api.subnets;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.quantum.model.Subnet;
 
@@ -14,7 +12,7 @@ private String id;
 		this.id = id;
 	}
 	
-	public Subnet execute(WebTarget target) {
-		return target.path("v2.0").path("subnets").path(id).request(MediaType.APPLICATION_JSON).get(Subnet.class);
+	public Subnet execute(OpenStackTarget target) {
+		return target.path("v2.0").path("subnets").path(id).get(Subnet.class);
 	}	
 }

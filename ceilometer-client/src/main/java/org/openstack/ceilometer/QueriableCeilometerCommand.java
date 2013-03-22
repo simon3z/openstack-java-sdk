@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.client.WebTarget;
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public abstract class QueriableCeilometerCommand<T,R> implements OpenStackCommand<R> {
@@ -47,7 +47,7 @@ public abstract class QueriableCeilometerCommand<T,R> implements OpenStackComman
 		return filter(field, "gt", value);
 	}
 
-	public WebTarget query(WebTarget target) {
+	public OpenStackTarget query(OpenStackTarget target) {
 		if(fields.size() > 0) {
 			target = target.queryParam("q.field", fields.toArray());
 			target = target.queryParam("q.op", ops.toArray());

@@ -3,21 +3,18 @@ package org.openstack.nova.api.extensions;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
-import org.openstack.nova.model.FloatingIps;
 import org.openstack.nova.model.FloatingIp;
+import org.openstack.nova.model.FloatingIps;
 
 public class FloatingIpsExtension {
 	
 	public static class ListFloatingIps implements OpenStackCommand<FloatingIps> {
 
 		@Override
-		public FloatingIps execute(WebTarget target) {
-			return target.path("os-floating-ips").request(MediaType.APPLICATION_JSON).get(FloatingIps.class);
+		public FloatingIps execute(OpenStackTarget target) {
+			return target.path("os-floating-ips").get(FloatingIps.class);
 		}
 
 	}
@@ -34,8 +31,8 @@ public class FloatingIpsExtension {
 		}
 
 		@Override
-		public FloatingIp execute(WebTarget target) {
-			return target.path("os-floating-ips").request(MediaType.APPLICATION_JSON).post(Entity.json(body)).readEntity(FloatingIp.class);
+		public FloatingIp execute(OpenStackTarget target) {
+			return target.path("os-floating-ips").postEntity(body, FloatingIp.class);
 		}
 
 	}
@@ -49,8 +46,8 @@ public class FloatingIpsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-floating-ips").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-floating-ips").path(id).delete();
 			return null;
 		}
 		
@@ -69,8 +66,8 @@ public class FloatingIpsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -88,8 +85,8 @@ public class FloatingIpsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 

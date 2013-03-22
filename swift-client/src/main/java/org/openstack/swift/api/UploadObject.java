@@ -2,10 +2,10 @@ package org.openstack.swift.api;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.swift.model.ObjectForUpload;
 
@@ -18,8 +18,8 @@ public class UploadObject implements OpenStackCommand<Response> {
 	}
 	
 	@Override
-	public Response execute(WebTarget target) {
-		Invocation.Builder invocationBuilder = target.path(objectForUpload.getContainer()).path(objectForUpload.getName()).request(MediaType.APPLICATION_JSON);
+	public Response execute(OpenStackTarget target) {
+		Invocation.Builder invocationBuilder = target.getWebTarget().path(objectForUpload.getContainer()).path(objectForUpload.getName()).request(MediaType.APPLICATION_JSON);
 		for(String key : objectForUpload.getProperties().keySet()) {
 			invocationBuilder.header("x-object-meta-" + key, objectForUpload.getProperties().get(key));
 		}

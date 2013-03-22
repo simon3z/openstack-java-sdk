@@ -1,9 +1,6 @@
 package org.openstack.nova.api.extensions;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.SecurityGroup;
 import org.openstack.nova.model.SecurityGroupForCreate;
@@ -15,8 +12,8 @@ public class SecurityGroupsExtension {
 	public static class ListSecurityGroups implements OpenStackCommand<SecurityGroups> {
 
 		@Override
-		public SecurityGroups execute(WebTarget target) {
-			return target.path("os-security-groups").request(MediaType.APPLICATION_JSON).get(SecurityGroups.class);
+		public SecurityGroups execute(OpenStackTarget target) {
+			return target.path("os-security-groups").get(SecurityGroups.class);
 		}
 
 	}
@@ -30,8 +27,8 @@ public class SecurityGroupsExtension {
 		}
 
 		@Override
-		public SecurityGroup execute(WebTarget target) {
-			return target.path("os-security-groups").request(MediaType.APPLICATION_JSON).post(Entity.json(securityGroupForCreate), SecurityGroup.class);
+		public SecurityGroup execute(OpenStackTarget target) {
+			return target.path("os-security-groups").postEntity(securityGroupForCreate, SecurityGroup.class);
 		}
 		
 	}
@@ -45,8 +42,8 @@ public class SecurityGroupsExtension {
 		}
 
 		@Override
-		public SecurityGroup execute(WebTarget target) {
-			return target.path("os-security-groups").path(String.valueOf(id)).request(MediaType.APPLICATION_JSON).get(SecurityGroup.class);
+		public SecurityGroup execute(OpenStackTarget target) {
+			return target.path("os-security-groups").path(String.valueOf(id)).get(SecurityGroup.class);
 		}
 		
 	}
@@ -60,8 +57,8 @@ public class SecurityGroupsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-security-groups").path(String.valueOf(id)).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-security-groups").path(String.valueOf(id)).delete();
 			return null;
 		}
 		
@@ -76,8 +73,8 @@ public class SecurityGroupsExtension {
 		}
 
 		@Override
-		public SecurityGroup.Rule execute(WebTarget target) {
-			return target.path("os-security-group-rules").request(MediaType.APPLICATION_JSON).post(Entity.json(securityGroupRuleForCreate), SecurityGroup.Rule.class);
+		public SecurityGroup.Rule execute(OpenStackTarget target) {
+			return target.path("os-security-group-rules").postEntity(securityGroupRuleForCreate, SecurityGroup.Rule.class);
 		}
 		
 	}
@@ -91,8 +88,8 @@ public class SecurityGroupsExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("os-security-group-rules").path(String.valueOf(id)).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("os-security-group-rules").path(String.valueOf(id)).delete();
 			return null;
 		}
 		

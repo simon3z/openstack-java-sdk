@@ -3,10 +3,10 @@ package org.openstack.glance.api;
 import java.io.InputStream;
 import java.util.Calendar;
 
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.glance.model.Image;
 import org.openstack.glance.model.ImageDownload;
@@ -20,8 +20,8 @@ public class DownloadImage implements OpenStackCommand<ImageDownload> {
 	}
 
 	@Override
-	public ImageDownload execute(WebTarget target) {
-		Response response = target.path("images").path(id).request(MediaType.APPLICATION_OCTET_STREAM).head();
+	public ImageDownload execute(OpenStackTarget target) {
+		Response response = target.getWebTarget().path("images").path(id).request(MediaType.APPLICATION_OCTET_STREAM).head();
 		Image image = new Image();
 		image.setUri(response.getHeaderString("x-image-meta-uri"));
 		image.setName(response.getHeaderString("x-image-meta-name"));

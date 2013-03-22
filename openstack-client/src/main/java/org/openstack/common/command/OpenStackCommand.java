@@ -1,9 +1,9 @@
 package org.openstack.common.command;
 
-import javax.ws.rs.client.WebTarget;
+import org.openstack.common.client.OpenStackTarget;
 
 public interface OpenStackCommand<R> {
 
-	public R execute(WebTarget target);
+	public R execute(OpenStackTarget target);
 
 }

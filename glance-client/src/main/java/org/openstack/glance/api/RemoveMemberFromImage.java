@@ -1,8 +1,6 @@
 package org.openstack.glance.api;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 
 public class RemoveMemberFromImage implements OpenStackCommand<Void> {
@@ -17,8 +15,8 @@ public class RemoveMemberFromImage implements OpenStackCommand<Void> {
 	}
 	
 	@Override
-	public Void execute(WebTarget endpoint) {
-		endpoint.path("images").path(id).path("members").path(tenantId).request(MediaType.APPLICATION_JSON).delete();
+	public Void execute(OpenStackTarget endpoint) {
+		endpoint.path("images").path(id).path("members").path(tenantId).delete();
 		return null;
 	}
 

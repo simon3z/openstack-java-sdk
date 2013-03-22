@@ -1,9 +1,6 @@
 package org.openstack.nova.api.extensions;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.ServerAction.Rescue;
 import org.openstack.nova.model.ServerAction.Unrescue;
@@ -22,8 +19,8 @@ public class ServerRescueExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 
@@ -41,8 +38,8 @@ public class ServerRescueExtension {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("servers").path(id).path("action").request(MediaType.APPLICATION_JSON).post(Entity.json(action));
+		public Void execute(OpenStackTarget target) {
+			target.path("servers").path(id).path("action").postEntity(action);
 			return null;
 		}
 

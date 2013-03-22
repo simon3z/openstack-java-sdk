@@ -1,9 +1,6 @@
 package org.openstack.keystone.api;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.keystone.model.Role;
 
@@ -16,8 +13,8 @@ public class CreateRole implements OpenStackCommand<Role> {
 	}
 
 	@Override
-	public Role execute(WebTarget target) {
-		return target.path("OS-KSADM/roles").request(MediaType.APPLICATION_JSON).post(Entity.json(roleForCreate), Role.class);
+	public Role execute(OpenStackTarget target) {
+		return target.path("OS-KSADM/roles").postEntity(roleForCreate, Role.class);
 	}
 	
 }

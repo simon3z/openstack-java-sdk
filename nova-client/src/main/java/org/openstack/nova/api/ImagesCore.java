@@ -2,9 +2,7 @@ package org.openstack.nova.api;
 
 import java.util.Map;
 
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
+import org.openstack.common.client.OpenStackTarget;
 import org.openstack.common.command.OpenStackCommand;
 import org.openstack.nova.model.Image;
 import org.openstack.nova.model.Images;
@@ -25,9 +23,9 @@ public class ImagesCore {
 		}
 
 		@Override
-		public Images execute(WebTarget target) {
+		public Images execute(OpenStackTarget target) {
 			String path = detail ? "images/detail" : "images";
-			return target.path(path).request(MediaType.APPLICATION_JSON).get(Images.class);
+			return target.path(path).get(Images.class);
 		}
 
 	}
@@ -41,8 +39,8 @@ public class ImagesCore {
 		}
 
 		@Override
-		public Image execute(WebTarget target) {
-			return target.path("images").path(id).request(MediaType.APPLICATION_JSON).get(Image.class);
+		public Image execute(OpenStackTarget target) {
+			return target.path("images").path(id).get(Image.class);
 		}
 		
 	}
@@ -56,8 +54,8 @@ public class ImagesCore {
 		}
 
 		@Override
-		public Map<String, String> execute(WebTarget target) {
-			Metadata metadata = target.path("images").path(id).path("metadata").request(MediaType.APPLICATION_JSON).get(Metadata.class);
+		public Map<String, String> execute(OpenStackTarget target) {
+			Metadata metadata = target.path("images").path(id).path("metadata").get(Metadata.class);
 			return metadata.getMetadata();
 		}
 		
@@ -73,8 +71,8 @@ public class ImagesCore {
 		}
 
 		@Override
-		public Void execute(WebTarget target) {
-			target.path("images").path(id).request(MediaType.APPLICATION_JSON).delete();
+		public Void execute(OpenStackTarget target) {
+			target.path("images").path(id).delete();
 			return null;
 		}
 		
