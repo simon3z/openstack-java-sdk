@@ -6,8 +6,8 @@ import org.openstack.keystone.api.Authenticate;
 import org.openstack.keystone.api.ListTenants;
 import org.openstack.keystone.model.Access;
 import org.openstack.keystone.model.Tenants;
-import org.openstack.keystone.utils.KeystoneUtils;
-import org.openstack.quantum.client.QuantumClient;
+//import org.openstack.keystone.utils.KeystoneUtils;
+//import org.openstack.quantum.client.QuantumClient;
 import org.openstack.quantum.model.Network;
 
 public class QuantumQueryNetworks {
@@ -29,9 +29,11 @@ public class QuantumQueryNetworks {
 			access = keystone.execute(Authenticate.withToken(access.getToken().getId())
 					.withTenantId(tenants.getList().get(0).getId()));
 
+			/*
 			QuantumClient quantumClient = new QuantumClient(KeystoneUtils
 					.findEndpointURL(access.getServiceCatalog(), "network",	null, "public"), 
 					access.getToken().getId());
+			*/
 
 			Network networkQuery = new Network();
 			networkQuery.setName("benn.cs");

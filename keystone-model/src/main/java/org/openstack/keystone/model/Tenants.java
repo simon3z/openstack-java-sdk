@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Tenants implements Iterable<Tenant>, Serializable {
 
+	private static final long serialVersionUID = -5349488164871079525L;
+
 	@JsonProperty("tenants")
 	private List<Tenant> list;
 	

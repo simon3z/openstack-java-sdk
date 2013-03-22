@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Images implements Iterable<Image>, Serializable {
 
+	private static final long serialVersionUID = 8194791030541699422L;
+
 	@JsonProperty("images")
 	private List<Image> list;
 

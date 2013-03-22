@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("network")
 public class Network implements Serializable{
+
+	private static final long serialVersionUID = 122527347617153437L;
 	
 	private String status;
 	private List<String> subnets;

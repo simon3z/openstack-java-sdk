@@ -10,6 +10,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("security_group_rule")
 public class SecurityGroupRuleForCreate implements Serializable {
 
+	private static final long serialVersionUID = 8147705277767519199L;
+
 	@JsonProperty("parent_group_id")
 	private Integer parentGroupId;
 	

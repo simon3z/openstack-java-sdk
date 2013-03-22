@@ -1,5 +1,6 @@
 package org.openstack.nova.api.extensions;
 
+import java.util.Collections;
 import java.util.Map;
 
 import javax.ws.rs.client.Entity;
@@ -40,12 +41,16 @@ public class AggregatesExtension {
 	public class UpdateAggregateMetadata implements NovaCommand<Void> {
 		
 		private String id;
-		
+
 		private Map<String, String> metadata;
 		
 		public UpdateAggregateMetadata(String id, Map<String, String> metadata) {
 			this.id = id;
 			this.metadata = metadata;
+		}
+
+		public Map<String, String> getMetadata() {
+			return Collections.unmodifiableMap(this.metadata);
 		}
 
 		@Override
@@ -85,6 +90,14 @@ public class AggregatesExtension {
 			this.hostId = hostId;
 		}
 
+		public String getAggregateId() {
+			return this.aggregateId;
+		}
+
+		public String getHostId() {
+			return this.hostId;
+		}
+
 		@Override
 		public Void execute(WebTarget target) {
 			target.path("os-aggregates").request(MediaType.APPLICATION_JSON).post(Entity.json("{\"add_host\" : }"));
@@ -103,6 +116,14 @@ public class AggregatesExtension {
 			this.aggregateId = aggregateId;
 			this.hostId = hostId;
 			
+		}
+
+		public String getAggregateId() {
+			return this.aggregateId;
+		}
+
+		public String getHostId() {
+			return this.hostId;
 		}
 
 		@Override

@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class HostAggregates implements Iterable<HostAggregate>, Serializable {
 
+	private static final long serialVersionUID = -6680022371038096743L;
+
 	@JsonProperty("aggregates")
 	private List<HostAggregate> list;
 

@@ -7,6 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("role")
 public class Role implements Serializable {
 
+	private static final long serialVersionUID = 4698102288392976692L;
+
 	private String id;
 	
 	private String name;

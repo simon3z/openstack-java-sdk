@@ -7,6 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("volumeAttachment")
 public class VolumeAttachment implements Serializable {
 
+	private static final long serialVersionUID = -2924452259826491940L;
+
 	private String id;
 
 	private String volumeId;

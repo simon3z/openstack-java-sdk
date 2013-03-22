@@ -7,6 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("OS-KSADM:service")
 public class Service implements Serializable {
 
+	private static final long serialVersionUID = -2776698135486700237L;
+
 	private String id;
 	
 	private String type;

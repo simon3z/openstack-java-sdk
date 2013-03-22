@@ -10,6 +10,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("volume")
 public class Volume implements Serializable {
 
+	private static final long serialVersionUID = 8680628010660508533L;
+
 	private String id;
 	
 	private String status;

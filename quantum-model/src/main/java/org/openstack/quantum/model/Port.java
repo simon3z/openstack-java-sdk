@@ -6,9 +6,13 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Port implements Serializable {
-	
+
+	private static final long serialVersionUID = 4495144592259374828L;
+
 	public static final class Ip implements Serializable {
-		
+
+		private static final long serialVersionUID = 2145252364477315042L;
+
 		@JsonProperty("ip_address")
 		private String address;
 		@JsonProperty("subnet_id")

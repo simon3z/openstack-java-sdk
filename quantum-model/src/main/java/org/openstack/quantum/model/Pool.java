@@ -3,6 +3,8 @@ package org.openstack.quantum.model;
 import java.io.Serializable;
 
 public class Pool implements Serializable{
+
+	private static final long serialVersionUID = -3303130336272066591L;
 	
 	private String start;
 	private String end;

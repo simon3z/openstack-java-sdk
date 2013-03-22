@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Roles implements Iterable<Role>, Serializable {
 
+	private static final long serialVersionUID = 8278222938667725312L;
+
 	@JsonProperty("roles")
 	private List<Role> list;
 

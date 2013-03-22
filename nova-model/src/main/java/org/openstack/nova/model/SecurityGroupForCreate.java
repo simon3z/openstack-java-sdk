@@ -6,7 +6,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("security_group")
 public class SecurityGroupForCreate implements Serializable {
-	
+
+	private static final long serialVersionUID = -4006339752963741914L;
+
 	private String name;
 	
 	private String description;

@@ -3,7 +3,9 @@ package org.openstack.nova.model;
 import java.io.Serializable;
 
 public final class PersonalityFile implements Serializable {
-	
+
+	private static final long serialVersionUID = 1216506061648010833L;
+
 	private String path;
 	
 	private String contents;

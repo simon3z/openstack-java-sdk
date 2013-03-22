@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class FloatingIps implements Iterable<FloatingIp>, Serializable {
 
+	private static final long serialVersionUID = 4176324227931503212L;
+
 	@JsonProperty("floating_ips")
 	private List<FloatingIp> list;
 

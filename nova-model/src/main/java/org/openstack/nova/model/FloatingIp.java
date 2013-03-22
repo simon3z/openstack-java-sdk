@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("floating_ip")
 public class FloatingIp implements Serializable {
 
+	private static final long serialVersionUID = -1573129784989335560L;
+
 	private String id;
 	
 	private String pool;

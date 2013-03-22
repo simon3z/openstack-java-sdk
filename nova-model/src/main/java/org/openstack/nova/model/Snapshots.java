@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Snapshots implements Iterable<Snapshot>, Serializable {
 
+	private static final long serialVersionUID = -2798264289503776661L;
+
 	@JsonProperty("snapshots")
 	private List<Snapshot> list;
 

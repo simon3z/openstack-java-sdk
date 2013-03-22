@@ -8,7 +8,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("tenant_usage")
 public class SimpleTenantUsage implements Serializable {
-	
+
+	private static final long serialVersionUID = -3291002500891060360L;
+
 	@JsonProperty("total_memory_mb_usage")
 	private BigDecimal totalMemoryMbUsage;
 	

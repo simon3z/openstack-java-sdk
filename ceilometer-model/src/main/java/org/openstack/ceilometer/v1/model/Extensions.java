@@ -15,6 +15,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Extensions implements Iterable<Extension>, Serializable {
 
+	private static final long serialVersionUID = -5727928611921925943L;
+
 	@JsonProperty("extensions")
 	private List<Extension> list;
 

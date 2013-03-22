@@ -7,7 +7,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("network")
 public class NetworkForCreate implements Serializable{
-	
+
+	private static final long serialVersionUID = 6287290614683522430L;
+
 	private String name;
 	@JsonProperty("admin_state_up")
 	private boolean adminStateUp;

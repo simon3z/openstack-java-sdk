@@ -12,11 +12,17 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("server")
 public class Server implements Serializable {
-	
+
+	private static final long serialVersionUID = 1529895461930477895L;
+
 	public static final class Addresses implements Serializable {
-		
+
+		private static final long serialVersionUID = -3475090958025616408L;
+
 		public static final class Address implements Serializable {
-			
+
+			private static final long serialVersionUID = 5854401086650480442L;
+
 			private String version;
 			
 			private String addr;

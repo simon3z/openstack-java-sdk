@@ -11,6 +11,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("image")
 public class Image implements Serializable {
 
+	private static final long serialVersionUID = -2342274902895731561L;
+
 	private String id;
 
 	private String uri;

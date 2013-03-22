@@ -32,6 +32,7 @@ public class SwiftExample {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("serial")
 	public static void main(String[] args) throws Exception {
 		KeystoneClient keystone = new KeystoneClient(ExamplesConfiguration.KEYSTONE_AUTH_URL);		
 		//access with unscoped token

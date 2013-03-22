@@ -11,7 +11,6 @@ import org.openstack.keystone.model.Authentication;
 import org.openstack.keystone.model.Authentication.PasswordCredentials;
 import org.openstack.keystone.model.Authentication.Token;
 import org.openstack.keystone.model.Tenants;
-import org.openstack.keystone.utils.KeystoneUtils;
 import org.openstack.nova.NovaClient;
 import org.openstack.nova.api.FlavorsCore;
 import org.openstack.nova.model.Flavor;

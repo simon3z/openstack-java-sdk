@@ -13,7 +13,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("changePassword")
 	public static final class ChangePassword implements ServerAction {
-		
+
+		private static final long serialVersionUID = 3664339620487596612L;
+
 		private String adminPass;
 
 		public ChangePassword() {
@@ -43,7 +45,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("reboot")
 	public static final class Reboot implements ServerAction {
-		
+
+		private static final long serialVersionUID = 6305264311981046090L;
+
 		private String type;
 
 		/**
@@ -64,7 +68,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("rebuild")
 	public static final class Rebuild implements ServerAction {
-		
+
+		private static final long serialVersionUID = 4030487570341167766L;
+
 		private String imageRef;
 		
 		private String name;
@@ -198,7 +204,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("resize")
 	public static final class Resize implements ServerAction {
-		
+
+		private static final long serialVersionUID = 1289316902895705854L;
+
 		private String flavorRef;
 		
 		@JsonProperty("OS-DCF:diskConfig")
@@ -236,17 +244,23 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("confirmResize")
 	public static final class ConfirmResize implements ServerAction {
+
+		private static final long serialVersionUID = 7616906958528124844L;
 		
 	}
 	
 	@JsonRootName("revertResize")
 	public static final class RevertResize implements ServerAction {
+
+		private static final long serialVersionUID = 7348713956617295859L;
 		
 	}
 	
 	@JsonRootName("createImage")
 	public static final class CreateImage implements ServerAction {
-		
+
+		private static final long serialVersionUID = -4725230990860460533L;
+
 		private String name;
 		
 		private Map<String, String> metadata;
@@ -283,7 +297,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("rescue")
 	public static final class Rescue implements ServerAction {
-		
+
+		private static final long serialVersionUID = -4635486771348463406L;
+
 		private String adminPass;
 
 		public Rescue() {
@@ -311,7 +327,9 @@ public interface ServerAction extends Serializable {
 	}
 	
 	public static final class RescueResponse implements ServerAction {
-		
+
+		private static final long serialVersionUID = -874352364053757700L;
+
 		private String adminPass;
 
 		/**
@@ -325,42 +343,58 @@ public interface ServerAction extends Serializable {
 
 	@JsonRootName("unrescue")
 	public static final class Unrescue implements ServerAction {
+
+		private static final long serialVersionUID = 3233972305702359676L;
 		
 	}
 	
 	@JsonRootName("unpause")
 	public static final class Unpause implements ServerAction {
+
+		private static final long serialVersionUID = 4008362919529808221L;
 		
 	}
 
 	@JsonRootName("pause")
 	public static final class Pause implements ServerAction {
+
+		private static final long serialVersionUID = 5728139721039780363L;
 		
 	}
 	
 	@JsonRootName("suspend")
 	public static final class Suspend implements ServerAction {
+
+		private static final long serialVersionUID = -8325262456833867846L;
 		
 	}
 
 	@JsonRootName("resume")
 	public static final class Resume implements ServerAction {
+
+		private static final long serialVersionUID = -8797931623297232540L;
 		
 	}
 	
 	@JsonRootName("lock")
 	public static final class Lock implements ServerAction {
+
+		private static final long serialVersionUID = 4992406401295369893L;
 		
 	}
 
 	@JsonRootName("unlock")
 	public static final class Unlock implements ServerAction {
+
+		private static final long serialVersionUID = 5300397463525041351L;
 		
 	}
 	
 	@JsonRootName("os-getConsoleOutput")
 	public static final class GetConsoleOutput implements ServerAction {
-		
+
+		private static final long serialVersionUID = -703741549690488988L;
+
 		private Integer length;
 		
 		public GetConsoleOutput() {
@@ -388,7 +422,9 @@ public interface ServerAction extends Serializable {
 	}
 	
 	public static final class ConsoleOutput implements ServerAction {
-		
+
+		private static final long serialVersionUID = 2188343534452892718L;
+
 		private String output;
 
 		/**
@@ -402,7 +438,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("os-getVNCConsole")
 	public static final class GetVncConsole implements ServerAction {
-		
+
+		private static final long serialVersionUID = 5981436222013128721L;
+
 		private String type;
 
 		public GetVncConsole() {
@@ -434,7 +472,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("console")
 	public static final class VncConsole implements ServerAction {
-		
+
+		private static final long serialVersionUID = -5061904106410876642L;
+
 		private String type;
 		
 		private String url;
@@ -457,27 +497,37 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("os-start")
 	public static final class Start implements ServerAction {
+
+		private static final long serialVersionUID = 5345909301147819461L;
 		
 	}
 
 	@JsonRootName("os-stop")
 	public static final class Stop implements ServerAction {
+
+		private static final long serialVersionUID = 1113892001968332366L;
 		
 	}
 	
 	@JsonRootName("forceDelete")
 	public static final class ForceDelete implements ServerAction {
+
+		private static final long serialVersionUID = -1758479100442651341L;
 		
 	}
 
 	@JsonRootName("restore")
 	public static final class Restore implements ServerAction {
+
+		private static final long serialVersionUID = 4800485805399358105L;
 		
 	}
 	
 	@JsonRootName("addFloatingIp")
 	public static final class AssociateFloatingIp implements ServerAction {
-	
+
+		private static final long serialVersionUID = 7759597516909040805L;
+
 		private String address;
 
 		public AssociateFloatingIp() {
@@ -509,6 +559,8 @@ public interface ServerAction extends Serializable {
 	@JsonRootName("removeFloatingIp")
 	public static final class DisassociateFloatingIp implements ServerAction {
 		
+		private static final long serialVersionUID = -6809908250006620029L;
+
 		private String address;
 		
 		public DisassociateFloatingIp() {
@@ -539,7 +591,9 @@ public interface ServerAction extends Serializable {
 	
 	@JsonRootName("createBackup")
 	public static final class CreateBackup implements ServerAction {
-		
+
+		private static final long serialVersionUID = 3843429532361384310L;
+
 		private String name;
 
 		@JsonProperty("backup_type")

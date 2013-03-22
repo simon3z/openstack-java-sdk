@@ -9,7 +9,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("aggreagate")
 public class HostAggregate implements Serializable {
-	
+
+	private static final long serialVersionUID = 3663000545529456945L;
+
 	private String id;
 
 	private String name;

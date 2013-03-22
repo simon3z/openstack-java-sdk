@@ -9,7 +9,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("subnet")
 
 public class SubnetForCreate implements Serializable{
-	
+
+	private static final long serialVersionUID = 6167169767021285827L;
+
 	private String name;
 	@JsonProperty("network_id")
 	private String networkid;

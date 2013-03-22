@@ -7,6 +7,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Cloudpipes implements Serializable {
 
+	private static final long serialVersionUID = 3239902615818333737L;
+
 	@JsonProperty("cloudpipes")
 	private List<Cloudpipe> list;
 

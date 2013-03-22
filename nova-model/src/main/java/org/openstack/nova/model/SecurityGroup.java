@@ -8,13 +8,19 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("security_group")
 public class SecurityGroup implements Serializable {
-	
+
+	private static final long serialVersionUID = 3415669851125349604L;
+
 	@JsonRootName("security_group_rule")
 	public static final class Rule implements Serializable {
-	
-	    public static final class Group implements Serializable {
 
-	        private String name;
+		private static final long serialVersionUID = -1419801663546688825L;
+
+		public static final class Group implements Serializable {
+
+			private static final long serialVersionUID = 1567335025536222187L;
+
+			private String name;
 
 	        @JsonProperty("tenant_id")
 	        private String tenantId;
@@ -36,7 +42,9 @@ public class SecurityGroup implements Serializable {
 
 	    public static final class IpRange implements Serializable {
 
-	        private String cidr;
+			private static final long serialVersionUID = -1636265331399401739L;
+
+			private String cidr;
 
 	        public String getCidr() {
 	            return cidr;

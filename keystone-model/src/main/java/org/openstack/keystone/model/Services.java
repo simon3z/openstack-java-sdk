@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Services implements Iterable<Service>,  Serializable {
 
+	private static final long serialVersionUID = 7163216544807019224L;
+
 	@JsonProperty("OS-KSADM:services")
 	private List<Service> list;
 

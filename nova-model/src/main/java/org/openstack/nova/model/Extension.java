@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("extension")
 public class Extension implements Serializable {
 
+	private static final long serialVersionUID = -7446206398897298134L;
+
 	private String alias;
 	
 	private String description;

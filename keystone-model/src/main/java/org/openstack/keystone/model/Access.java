@@ -12,6 +12,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("access")
 public class Access implements Serializable {
 
+	private static final long serialVersionUID = 6997949705301031204L;
+
 	public static final class Token {
 		
 		public static final class Tenant {

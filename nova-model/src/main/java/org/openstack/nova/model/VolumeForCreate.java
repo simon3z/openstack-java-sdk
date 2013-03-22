@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("volume")
 public class VolumeForCreate implements Serializable {
 
+	private static final long serialVersionUID = -5817701497174178968L;
+
 	private Integer size;
 
 	@JsonProperty("availability_zone")

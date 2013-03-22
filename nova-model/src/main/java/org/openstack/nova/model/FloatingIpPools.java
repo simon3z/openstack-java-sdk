@@ -8,8 +8,12 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.openstack.nova.model.FloatingIpPools.FloatingIpPool;
 
 public class FloatingIpPools implements Iterable<FloatingIpPool>, Serializable {
-	
+
+	private static final long serialVersionUID = -5076533475630831613L;
+
 	public static class FloatingIpPool implements Serializable {
+
+		private static final long serialVersionUID = -6949955112979829025L;
 
 		private String name;
 

@@ -7,7 +7,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 
 public class Object implements Serializable {
-	
+
+	private static final long serialVersionUID = 3231615806971790808L;
+
 	private String subdir;
 	
 	private String name;

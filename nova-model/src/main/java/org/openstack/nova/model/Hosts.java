@@ -7,7 +7,9 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Hosts implements Iterable<Hosts.Host>, Serializable {
-	
+
+	private static final long serialVersionUID = -8171018749320250085L;
+
 	public static final class Host {
 		
 		@JsonProperty("host_name")

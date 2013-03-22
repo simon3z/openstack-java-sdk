@@ -7,6 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("error")
 public class Error implements Serializable {
 
+	private static final long serialVersionUID = -8614229126268881834L;
+
 	private Integer code;
 	
 	private String title;

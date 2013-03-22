@@ -46,7 +46,7 @@ public class MeterFunction extends MeterCommand<BigDecimal> {
 			target = target.path("users").path(user);
 		}
 		target = target.path("v1/meters").path(id).path(function);
-		Response response = target.request(MediaType.APPLICATION_JSON).get(Response.class);
+		target.request(MediaType.APPLICATION_JSON).get(Response.class);
 		return null;
 	}
 

@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("keypair")
 public class KeyPair implements Serializable {
 
+	private static final long serialVersionUID = -728969886808099598L;
+
 	private String name;
 	
 	@JsonProperty("user_id")

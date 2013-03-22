@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Networks implements Iterable<Network>, Serializable {
 
+	private static final long serialVersionUID = 403356307888576674L;
+
 	@JsonProperty("networks")
 	private List<Network> list;
 

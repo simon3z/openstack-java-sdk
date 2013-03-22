@@ -1,14 +1,15 @@
 package org.openstack.nova.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("flavor")
 public class FlavorForCreate implements Serializable {
-	
+
+	private static final long serialVersionUID = 8894905197320028477L;
+
 	private String id;
 	
 	private String name;

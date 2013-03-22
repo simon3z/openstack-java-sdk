@@ -7,7 +7,6 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import org.openstack.ceilometer.QueriableCeilometerCommand;
-import org.openstack.ceilometer.v2.model.Resource;
 import org.openstack.ceilometer.v2.model.Statistics;
 
 

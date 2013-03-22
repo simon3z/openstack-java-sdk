@@ -3,7 +3,6 @@ package org.openstack.glance.api;
 import java.io.InputStream;
 import java.util.Calendar;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

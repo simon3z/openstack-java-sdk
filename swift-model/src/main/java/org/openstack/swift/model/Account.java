@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 
+	private static final long serialVersionUID = -244628331370626226L;
+
 	private Integer containerCount;
 	
 	private Integer objectCount;

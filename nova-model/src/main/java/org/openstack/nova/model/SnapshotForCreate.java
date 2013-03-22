@@ -7,7 +7,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("snapshot")
 public class SnapshotForCreate implements Serializable {
-	
+
+	private static final long serialVersionUID = -7913133105827549001L;
+
 	@JsonProperty("volume_id")
 	private String volumeId;
 	

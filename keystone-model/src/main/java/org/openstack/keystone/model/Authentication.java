@@ -7,6 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("auth")
 public class Authentication implements Serializable {
 	
+	private static final long serialVersionUID = -6188229272118829404L;
+
 	public static final class Token {
 		
 		private String id;

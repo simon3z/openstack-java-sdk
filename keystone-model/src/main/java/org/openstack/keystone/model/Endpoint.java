@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("endpoint")
 public class Endpoint implements Serializable {
 
+	private static final long serialVersionUID = -8279536502796269052L;
+
 	private String id;
 	
 	@JsonProperty("service_id")

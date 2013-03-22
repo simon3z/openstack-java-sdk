@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class SecurityGroups implements Iterable<SecurityGroup>, Serializable {
 
+	private static final long serialVersionUID = -3625305924464704016L;
+
 	@JsonProperty("security_groups")
 	private List<SecurityGroup> list;
 

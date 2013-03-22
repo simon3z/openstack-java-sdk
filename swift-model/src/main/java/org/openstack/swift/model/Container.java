@@ -5,7 +5,9 @@ import java.io.Serializable;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Container implements Serializable {
-	
+
+	private static final long serialVersionUID = -8389895822997013376L;
+
 	private String name;
 	
 	@JsonProperty("count")

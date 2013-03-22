@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Volumes implements Iterable<Volume>, Serializable {
 
+	private static final long serialVersionUID = -8804257655387486307L;
+
 	@JsonProperty("volumes")
 	private List<Volume> list;
 

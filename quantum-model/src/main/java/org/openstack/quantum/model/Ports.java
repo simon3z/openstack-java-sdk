@@ -7,7 +7,9 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Ports implements Iterable<Port>, Serializable {
-	
+
+	private static final long serialVersionUID = -7989783706457083933L;
+
 	@JsonProperty("ports")
 	private List<Port> list;
 	

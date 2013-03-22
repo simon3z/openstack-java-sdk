@@ -9,11 +9,17 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("limits")
 public class Limits implements Serializable {
-	
+
+	private static final long serialVersionUID = -4096405370029072040L;
+
 	public static final class RateLimit implements Serializable {
-		
+
+		private static final long serialVersionUID = 6540402089785140931L;
+
 		public static final class LimitEntry implements Serializable {
-		
+
+			private static final long serialVersionUID = 3294429921267872642L;
+
 			@JsonProperty("next-available")
 			private Calendar nextAvailable;
 			
@@ -131,6 +137,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxServerMeta
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxServerMeta() {
 			return maxServerMeta;
 		}
@@ -138,6 +145,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxPersonality
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxPersonality() {
 			return maxPersonality;
 		}
@@ -145,6 +153,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxImageMeta
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxImageMeta() {
 			return maxImageMeta;
 		}
@@ -152,6 +161,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxPersonalitySize
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxPersonalitySize() {
 			return maxPersonalitySize;
 		}
@@ -159,6 +169,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxTotalCores
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxTotalCores() {
 			return maxTotalCores;
 		}
@@ -166,6 +177,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxTotalInstances
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxTotalInstances() {
 			return maxTotalInstances;
 		}
@@ -173,6 +185,7 @@ public class Limits implements Serializable {
 		/**
 		 * @return the maxTotalRAMSize
 		 */
+		@SuppressWarnings("unused")
 		public Integer getMaxTotalRAMSize() {
 			return maxTotalRAMSize;
 		}

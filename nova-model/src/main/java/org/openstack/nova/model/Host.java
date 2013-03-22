@@ -6,11 +6,17 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Host implements Serializable {
-	
+
+	private static final long serialVersionUID = 5606067001863507073L;
+
 	public static final class ResourceWrapper implements Serializable {
-		
+
+		private static final long serialVersionUID = 1551506914806809269L;
+
 		public static final class Resource implements Serializable {
-			
+
+			private static final long serialVersionUID = -1202720724935178790L;
+
 			private String project;
 			
 			@JsonProperty("memory_mb")

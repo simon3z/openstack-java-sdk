@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("flavor")
 public class Flavor implements Serializable {
 
+	private static final long serialVersionUID = -1006391485413338286L;
+
 	private String id;
 	
 	private String name;

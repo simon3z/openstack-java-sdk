@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-
-import org.openstack.ceilometer.v2.model.Resource;
 
 public abstract class QueriableCeilometerCommand<T,R> implements CeilometerCommand<R>{
 	
@@ -18,6 +14,7 @@ public abstract class QueriableCeilometerCommand<T,R> implements CeilometerComma
 	
 	protected List<Serializable> values = new ArrayList<Serializable>();
 	
+	@SuppressWarnings("unchecked")
 	private T filter(String field, String op, Serializable value) {
 		fields.add(field);
 		ops.add(op);

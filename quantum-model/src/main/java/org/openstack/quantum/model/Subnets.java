@@ -7,7 +7,9 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Subnets implements Serializable, Iterable<Subnet> {
-	
+
+	private static final long serialVersionUID = -8056680920023101317L;
+
 	@JsonProperty("subnets")
 	private List<Subnet> list;
 	

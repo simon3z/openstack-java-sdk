@@ -6,7 +6,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.openstack.glance.GlanceCommand;
 import org.openstack.glance.model.Image;
-import org.openstack.glance.model.ImageMember;
 
 public class UpdateImage implements GlanceCommand<Image>{
 

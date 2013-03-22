@@ -4,7 +4,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 import org.openstack.glance.GlanceCommand;
-import org.openstack.glance.model.Images;
 import org.openstack.glance.model.SharedImages;
 
 public class ListSharedImages implements GlanceCommand<SharedImages>{

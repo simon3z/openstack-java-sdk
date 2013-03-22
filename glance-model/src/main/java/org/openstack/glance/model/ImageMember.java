@@ -6,6 +6,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class ImageMember implements Serializable {
 
+	private static final long serialVersionUID = -3782098519024545590L;
+
 	@JsonProperty("can_share")
 	private boolean canShare;
 	

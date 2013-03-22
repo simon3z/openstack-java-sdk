@@ -10,7 +10,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("subnet")
 public class Subnet implements Serializable{
-	
+
+	private static final long serialVersionUID = -4412161784541791206L;
+
 	private String name;
 	@JsonProperty("enable_dhcp")
 	private boolean enableDHCP;

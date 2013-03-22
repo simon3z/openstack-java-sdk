@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("snapshot")
 public class Snapshot implements Serializable {
 
+	private static final long serialVersionUID = 5024939513175168779L;
+
 	private String id;
 	
 	private String status;

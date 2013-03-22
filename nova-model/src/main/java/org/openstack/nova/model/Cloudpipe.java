@@ -7,7 +7,9 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 
 @JsonRootName("cloudpipe")
 public class Cloudpipe implements Serializable {
-	
+
+	private static final long serialVersionUID = -3098869914401338472L;
+
 	private String projectId;
 	
 	private String internalIp;

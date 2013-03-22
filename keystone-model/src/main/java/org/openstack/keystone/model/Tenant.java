@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Tenant implements Serializable {
 
+	private static final long serialVersionUID = -5872280490003753440L;
+
 	private String id;
 	
 	private String name;

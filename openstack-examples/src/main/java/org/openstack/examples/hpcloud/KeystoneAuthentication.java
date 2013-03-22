@@ -3,8 +3,6 @@ package org.openstack.examples.hpcloud;
 import org.openstack.keystone.KeystoneClient;
 import org.openstack.keystone.api.Authenticate;
 import org.openstack.keystone.model.Access;
-import org.openstack.keystone.model.Authentication;
-import org.openstack.keystone.model.Authentication.PasswordCredentials;
 
 public class KeystoneAuthentication {
 	

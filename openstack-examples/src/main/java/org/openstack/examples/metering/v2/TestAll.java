@@ -4,13 +4,8 @@ import java.util.List;
 
 import org.openstack.ceilometer.CeilometerClient;
 import org.openstack.ceilometer.v2.api.MeterList;
-import org.openstack.ceilometer.v2.api.MeterShow;
 import org.openstack.ceilometer.v2.api.MeterStatistics;
-import org.openstack.ceilometer.v2.api.ResourceList;
-import org.openstack.ceilometer.v2.api.ResourceShow;
 import org.openstack.ceilometer.v2.model.Meter;
-import org.openstack.ceilometer.v2.model.Resource;
-import org.openstack.ceilometer.v2.model.Sample;
 import org.openstack.ceilometer.v2.model.Statistics;
 import org.openstack.examples.ExamplesConfiguration;
 import org.openstack.keystone.KeystoneClient;

@@ -8,6 +8,8 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName("network")
 public class Network implements Serializable {
 
+	private static final long serialVersionUID = -7904101554940473677L;
+
 	private String id;
 	
 	@JsonProperty("vpn_public_address")

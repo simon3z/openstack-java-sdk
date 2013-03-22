@@ -17,9 +17,9 @@ package org.openstack.nova.api;
 
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+
 import org.openstack.nova.NovaCommand;
 import org.openstack.nova.model.Extensions;
-import org.openstack.nova.model.Images;
 
 /**
  *

@@ -8,9 +8,13 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class KeyPairs implements Iterable<KeyPair>, Serializable {
-	
+
+	private static final long serialVersionUID = -2896710714999293226L;
+
 	public static final class KeyPairWrapper implements Serializable {
-		
+
+		private static final long serialVersionUID = -1233272891713137377L;
+
 		@JsonProperty
 		private KeyPair keypair;
 		
